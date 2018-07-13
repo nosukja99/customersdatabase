@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>ZipCode</td>
+            <td>Email</td>
+            <td>Position</td>
+            <td>Company</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><h6 th:text ="${customer.firstname}"></h6></td>
+            <td><h6 th:text ="${customer.lastname}"></h6></td>
+            <td><h6 th:text ="${customer.streetaddress}"></h6></td>
+            <td><h6 th:text ="${customer.city}"></h6></td>
+            <td><h6 th:text ="${customer.state}"></h6></td>
+            <td><h6 th:text ="${customer.zipcode}"></h6></td>
+            <td><h6 th:text ="${customer.emailaddress}"></h6></td>
+            <td><h6 th:text ="${customer.position}"></h6></td>
+            <td><h6 th:text ="${customer.company.companyname}"></h6></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/updateCustomer/{id} (id=${customer.id})}">Update</a> -
+    <a th:href="@{/deleteCustomer/{id} (id=${customer.id})}">Delete</a>
+</body>
+</html>

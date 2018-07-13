@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-bordered">
+
+        <thead>
+        <tr>
+            <td>Company</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <div th:each="company : ${companies}">
+            <td><h6 th:text ="${company.companyname}"></h6></td>
+            <td><a th:href="@{/detailCompany/{id} (id=${company.id})}">Company Detail</a></td></h6>
+            </div>
+        </tr>
+        </tbody>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
+    <title>Customer Database</title>
+</head>
+<body>
+    <div align="center">
+        <a href="/addcustomer" class="badge badge-primary"><h3 class="font-weight-bold">Add a customer</h3></a>
+        <a href="/addcompany" class="badge badge-warning"><h3 class="font-weight-bold">Add a company</h3></a>
+        <a href="/search" class="pull-right">Search for a Course</a><br/>
+    </div>
+
+    <br>
+    <hr>
+        <table class="table table-bordered">
+
+            <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>Company</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <div th:each="customer : ${customers}">
+                <td><h6 th:text ="${customer.firstname}"></h6></td>
+                <td><h6 th:text ="${customer.lastname}"></h6></td>
+                <td><h6 th:text ="${customer.company.companyname}"></h6>
+                <a th:href="@{/detailCompany/{id} (id=${customer.company.id})}">(Company Detail)</a></h6>
+                </td>
+                <td>
+                    <div>
+                        <a th:href="@{/detailCustomer/{id} (id=${customer.id})}" class="badge badge-success"><h3 class="font-weight-bold">Customer Details</h3></a>
+                    </div>
+                </td>
+                </div>
+            </tr>
+            </tbody>
+        </table>
+</body>
+</html>
